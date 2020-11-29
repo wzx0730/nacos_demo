@@ -1,0 +1,15 @@
+server:
+  port: 8082
+spring:
+  application:
+    name: service_consumer_8082
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.22.3:8848
+      config:
+        server-addr: 192.168.22.3:8848
+        file-extension: yaml
+        group: DEFAULT_GROUP
+
+

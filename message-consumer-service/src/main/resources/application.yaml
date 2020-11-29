@@ -1,0 +1,37 @@
+spring:
+  cloud:
+    stream:
+      rabbit:
+        bindings:
+          input:
+            consumer:
+              acknowledge-mode: manual
+      binders:
+        defaultRabbit:
+          type: rabbit
+          environment:
+            spring:
+              rabbitmq:
+                addresses: 127.0.0.1
+                port: 5672
+                username: guest
+                password: guest
+      bindings:
+        output: #通道的名称
+          destination: exchange1 #表示要使用的exchange名称的定义
+          content-type: application/json
+          binder: defaultRabbit
+        input:
+          destination: exchange1 #表示要使用的exchange名称的定义
+          content-type: application/json
+          binder: defaultRabbit
+          group: msgService2
+  kafka:
+    consumer:
+      enable-auto-commit:
+
+
+
+
+
+

@@ -1,0 +1,16 @@
+server:
+  port: 9001
+spring:
+  application:
+    name: service-provider-9001
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.22.3:8848
+      config:
+        server-addr: 192.168.22.3:8848
+    stream:
+      bindings:
+        message-center-out:
+          destination: message-center
+
